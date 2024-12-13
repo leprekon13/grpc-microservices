@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.example.review;
+
+service ReviewService {
+    rpc SubmitReview(ReviewRequest) returns (ReviewResponse);
+    rpc GetReviews(GetReviewsRequest) returns (ReviewsResponse);
+}
+
+message ReviewRequest {
+    string user_id = 1;
+    string product_id = 2;
+    int32 rating = 3;
+    string comment = 4;
+}
+
+message GetReviewsRequest {
+    string product_id = 1;
+}
+
+message ReviewResponse {
+    string review_id = 1;
+    string user_id = 2;
+    string product_id = 3;
+    int32 rating = 4;
+    string comment = 5;
+    string timestamp = 6;
+}
+
+message ReviewsResponse {
+    repeated ReviewResponse reviews = 1;
+}

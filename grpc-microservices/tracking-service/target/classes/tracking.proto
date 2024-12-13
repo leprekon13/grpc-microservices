@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.example.tracking;
+
+service TrackingService {
+    rpc AddTrackingInfo(TrackingInfoRequest) returns (TrackingResponse);
+    rpc GetTrackingInfo(TrackingInfoRequest) returns (TrackingResponse);
+}
+
+message TrackingInfoRequest {
+    string order_id = 1;
+}
+
+message TrackingResponse {
+    string order_id = 1;
+    string tracking_id = 2;
+    string status = 3;
+    string estimated_delivery_date = 4;
+}
