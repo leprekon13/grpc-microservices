@@ -1,2 +1,3 @@
 /home/diman/IdeaProjects/grpc-microservices/user-service/target/generated-sources/protobuf/grpc-java/com/example/user/UserServiceGrpc.java
+/home/diman/IdeaProjects/grpc-microservices/user-service/src/main/java/com/example/user/UserServiceServer.java
 /home/diman/IdeaProjects/grpc-microservices/user-service/target/generated-sources/protobuf/java/com/example/user/User.java
