@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.example.user;
+
+service UserService {
+    // Метод для создания нового пользователя
+    rpc CreateUser (CreateUserRequest) returns (UserResponse);
+    
+    // Метод для получения данных пользователя
+    rpc GetUser (GetUserRequest) returns (UserResponse);
+}
+
+message CreateUserRequest {
+    string name = 1;
+    string email = 2;
+}
+
+message GetUserRequest {
+    string user_id = 1;
+}
+
+message UserResponse {
+    string user_id = 1;
+    string name = 2;
+    string email = 3;
+}
+
