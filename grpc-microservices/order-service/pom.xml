@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>order-service</artifactId>
+
     <dependencies>
         <!-- Зависимости gRPC -->
         <dependency>
@@ -33,4 +34,28 @@
             <version>3.23.0</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Плагин для генерации Java-кода из .proto файлов -->
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.6.1</version>
+                <configuration>
+                    <protocArtifact>com.google.protobuf:protoc:3.23.0:exe:${os.detected.classifier}</protocArtifact>
+                    <pluginId>grpc-java</pluginId>
+                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.56.0:exe:${os.detected.classifier}</pluginArtifact>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>compile-custom</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
