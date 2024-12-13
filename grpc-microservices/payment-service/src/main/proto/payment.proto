@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package com.example.payment;
+
+service PaymentService {
+    // Метод для обработки платежа
+    rpc ProcessPayment (PaymentRequest) returns (PaymentResponse);
+
+    // Метод для получения статуса платежа
+    rpc GetPaymentStatus (PaymentStatusRequest) returns (PaymentStatusResponse);
+}
+
+message PaymentRequest {
+    string user_id = 1;
+    string order_id = 2;
+    double amount = 3;
+}
+
+message PaymentResponse {
+    string payment_id = 1;
+    string status = 2; // Например, "успешно" или "неуспешно"
+}
+
+message PaymentStatusRequest {
+    string payment_id = 1;
+}
+
+message PaymentStatusResponse {
+    string payment_id = 1;
+    string status = 2; // Например, "ожидает", "успешно", "отклонено"
+    string details = 3; // Дополнительная информация о платеже
+}
+

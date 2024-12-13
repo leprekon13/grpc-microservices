@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.example.tracking;
+
+service TrackingService {
+    // Метод для обновления статуса отслеживания
+    rpc UpdateTracking (UpdateTrackingRequest) returns (TrackingResponse);
+
+    // Метод для получения текущего статуса
+    rpc GetTrackingStatus (TrackingStatusRequest) returns (TrackingResponse);
+}
+
+message UpdateTrackingRequest {
+    string order_id = 1;
+    string status = 2; // Например, "в пути", "доставлено"
+}
+
+message TrackingStatusRequest {
+    string order_id = 1;
+}
+
+message TrackingResponse {
+    string order_id = 1;
+    string status = 2; // Например, "в пути", "доставлено", "задержка"
+    string updated_at = 3; // Время последнего обновления
+}
+

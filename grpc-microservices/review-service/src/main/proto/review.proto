@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package com.example.review;
+
+service ReviewService {
+    // Метод для добавления нового отзыва
+    rpc AddReview (AddReviewRequest) returns (ReviewResponse);
+
+    // Метод для получения отзывов
+    rpc GetReviews (GetReviewsRequest) returns (GetReviewsResponse);
+}
+
+message AddReviewRequest {
+    string user_id = 1;
+    string product_id = 2;
+    string review_text = 3;
+    int32 rating = 4; // Оценка (например, от 1 до 5)
+}
+
+message ReviewResponse {
+    string review_id = 1;
+    string status = 2; // Статус добавления, например "успешно"
+}
+
+message GetReviewsRequest {
+    string product_id = 1;
+}
+
+message GetReviewsResponse {
+    repeated Review reviews = 1; // Список отзывов
+}
+
+message Review {
+    string review_id = 1;
+    string user_id = 2;
+    string product_id = 3;
+    string review_text = 4;
+    int32 rating = 5;
+    string created_at = 6; // Время добавления отзыва
+}
