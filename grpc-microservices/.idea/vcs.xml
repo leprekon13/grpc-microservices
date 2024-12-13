@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../ansible-deployment" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../my-java-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../my-web-app" vcs="Git" />
   </component>
 </project>

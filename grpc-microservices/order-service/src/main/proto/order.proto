@@ -3,11 +3,8 @@ syntax = "proto3";
 package com.example.order;
 
 service OrderService {
-    // Метод для создания нового заказа
-    rpc CreateOrder (CreateOrderRequest) returns (OrderResponse);
-
-    // Метод для получения информации о заказе
-    rpc GetOrder (GetOrderRequest) returns (OrderResponse);
+    rpc CreateOrder(CreateOrderRequest) returns (OrderResponse);
+    rpc GetOrder(GetOrderRequest) returns (OrderResponse);
 }
 
 message CreateOrderRequest {
@@ -27,4 +24,3 @@ message OrderResponse {
     int32 quantity = 4;
     string status = 5;
 }
-

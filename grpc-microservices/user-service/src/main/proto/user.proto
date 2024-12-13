@@ -3,11 +3,8 @@ syntax = "proto3";
 package com.example.user;
 
 service UserService {
-    // Метод для создания нового пользователя
-    rpc CreateUser (CreateUserRequest) returns (UserResponse);
-    
-    // Метод для получения данных пользователя
-    rpc GetUser (GetUserRequest) returns (UserResponse);
+    rpc CreateUser(CreateUserRequest) returns (UserResponse);
+    rpc GetUser(GetUserRequest) returns (UserResponse);
 }
 
 message CreateUserRequest {
@@ -24,4 +21,3 @@ message UserResponse {
     string name = 2;
     string email = 3;
 }
-
