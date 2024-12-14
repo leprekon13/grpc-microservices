@@ -49,6 +49,10 @@ public final class Payment {
     double getAmount();
   }
   /**
+   * <pre>
+   * Запрос на обработку платежа
+   * </pre>
+   *
    * Protobuf type {@code com.example.payment.PaymentRequest}
    */
   public static final class PaymentRequest extends
@@ -354,6 +358,10 @@ public final class Payment {
       return builder;
     }
     /**
+     * <pre>
+     * Запрос на обработку платежа
+     * </pre>
+     *
      * Protobuf type {@code com.example.payment.PaymentRequest}
      */
     public static final class Builder extends
@@ -773,6 +781,10 @@ public final class Payment {
         getPaymentIdBytes();
   }
   /**
+   * <pre>
+   * Запрос на проверку статуса платежа
+   * </pre>
+   *
    * Protobuf type {@code com.example.payment.PaymentStatusRequest}
    */
   public static final class PaymentStatusRequest extends
@@ -1004,6 +1016,10 @@ public final class Payment {
       return builder;
     }
     /**
+     * <pre>
+     * Запрос на проверку статуса платежа
+     * </pre>
+     *
      * Protobuf type {@code com.example.payment.PaymentStatusRequest}
      */
     public static final class Builder extends
@@ -1293,36 +1309,52 @@ public final class Payment {
         getPaymentIdBytes();
 
     /**
-     * <code>string order_id = 2;</code>
+     * <code>string user_id = 2;</code>
+     * @return The userId.
+     */
+    java.lang.String getUserId();
+    /**
+     * <code>string user_id = 2;</code>
+     * @return The bytes for userId.
+     */
+    com.google.protobuf.ByteString
+        getUserIdBytes();
+
+    /**
+     * <code>string order_id = 3;</code>
      * @return The orderId.
      */
     java.lang.String getOrderId();
     /**
-     * <code>string order_id = 2;</code>
+     * <code>string order_id = 3;</code>
      * @return The bytes for orderId.
      */
     com.google.protobuf.ByteString
         getOrderIdBytes();
 
     /**
-     * <code>double amount = 3;</code>
+     * <code>double amount = 4;</code>
      * @return The amount.
      */
     double getAmount();
 
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 5;</code>
      * @return The status.
      */
     java.lang.String getStatus();
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 5;</code>
      * @return The bytes for status.
      */
     com.google.protobuf.ByteString
         getStatusBytes();
   }
   /**
+   * <pre>
+   * Ответ на запросы
+   * </pre>
+   *
    * Protobuf type {@code com.example.payment.PaymentResponse}
    */
   public static final class PaymentResponse extends
@@ -1336,6 +1368,7 @@ public final class Payment {
     }
     private PaymentResponse() {
       paymentId_ = "";
+      userId_ = "";
       orderId_ = "";
       status_ = "";
     }
@@ -1399,11 +1432,50 @@ public final class Payment {
       }
     }
 
-    public static final int ORDER_ID_FIELD_NUMBER = 2;
+    public static final int USER_ID_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object userId_ = "";
+    /**
+     * <code>string user_id = 2;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public java.lang.String getUserId() {
+      java.lang.Object ref = userId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string user_id = 2;</code>
+     * @return The bytes for userId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUserIdBytes() {
+      java.lang.Object ref = userId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ORDER_ID_FIELD_NUMBER = 3;
     @SuppressWarnings("serial")
     private volatile java.lang.Object orderId_ = "";
     /**
-     * <code>string order_id = 2;</code>
+     * <code>string order_id = 3;</code>
      * @return The orderId.
      */
     @java.lang.Override
@@ -1420,7 +1492,7 @@ public final class Payment {
       }
     }
     /**
-     * <code>string order_id = 2;</code>
+     * <code>string order_id = 3;</code>
      * @return The bytes for orderId.
      */
     @java.lang.Override
@@ -1438,10 +1510,10 @@ public final class Payment {
       }
     }
 
-    public static final int AMOUNT_FIELD_NUMBER = 3;
+    public static final int AMOUNT_FIELD_NUMBER = 4;
     private double amount_ = 0D;
     /**
-     * <code>double amount = 3;</code>
+     * <code>double amount = 4;</code>
      * @return The amount.
      */
     @java.lang.Override
@@ -1449,11 +1521,11 @@ public final class Payment {
       return amount_;
     }
 
-    public static final int STATUS_FIELD_NUMBER = 4;
+    public static final int STATUS_FIELD_NUMBER = 5;
     @SuppressWarnings("serial")
     private volatile java.lang.Object status_ = "";
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 5;</code>
      * @return The status.
      */
     @java.lang.Override
@@ -1470,7 +1542,7 @@ public final class Payment {
       }
     }
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 5;</code>
      * @return The bytes for status.
      */
     @java.lang.Override
@@ -1505,14 +1577,17 @@ public final class Payment {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(paymentId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, paymentId_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userId_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, orderId_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, orderId_);
       }
       if (java.lang.Double.doubleToRawLongBits(amount_) != 0) {
-        output.writeDouble(3, amount_);
+        output.writeDouble(4, amount_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, status_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1526,15 +1601,18 @@ public final class Payment {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(paymentId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, paymentId_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userId_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, orderId_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, orderId_);
       }
       if (java.lang.Double.doubleToRawLongBits(amount_) != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(3, amount_);
+          .computeDoubleSize(4, amount_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, status_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1553,6 +1631,8 @@ public final class Payment {
 
       if (!getPaymentId()
           .equals(other.getPaymentId())) return false;
+      if (!getUserId()
+          .equals(other.getUserId())) return false;
       if (!getOrderId()
           .equals(other.getOrderId())) return false;
       if (java.lang.Double.doubleToLongBits(getAmount())
@@ -1573,6 +1653,8 @@ public final class Payment {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + PAYMENT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPaymentId().hashCode();
+      hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getUserId().hashCode();
       hash = (37 * hash) + ORDER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getOrderId().hashCode();
       hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
@@ -1678,6 +1760,10 @@ public final class Payment {
       return builder;
     }
     /**
+     * <pre>
+     * Ответ на запросы
+     * </pre>
+     *
      * Protobuf type {@code com.example.payment.PaymentResponse}
      */
     public static final class Builder extends
@@ -1712,6 +1798,7 @@ public final class Payment {
         super.clear();
         bitField0_ = 0;
         paymentId_ = "";
+        userId_ = "";
         orderId_ = "";
         amount_ = 0D;
         status_ = "";
@@ -1752,12 +1839,15 @@ public final class Payment {
           result.paymentId_ = paymentId_;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.orderId_ = orderId_;
+          result.userId_ = userId_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.amount_ = amount_;
+          result.orderId_ = orderId_;
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.amount_ = amount_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
           result.status_ = status_;
         }
       }
@@ -1779,9 +1869,14 @@ public final class Payment {
           bitField0_ |= 0x00000001;
           onChanged();
         }
+        if (!other.getUserId().isEmpty()) {
+          userId_ = other.userId_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
         if (!other.getOrderId().isEmpty()) {
           orderId_ = other.orderId_;
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getAmount() != 0D) {
@@ -1789,7 +1884,7 @@ public final class Payment {
         }
         if (!other.getStatus().isEmpty()) {
           status_ = other.status_;
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -1824,20 +1919,25 @@ public final class Payment {
                 break;
               } // case 10
               case 18: {
-                orderId_ = input.readStringRequireUtf8();
+                userId_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000002;
                 break;
               } // case 18
-              case 25: {
-                amount_ = input.readDouble();
+              case 26: {
+                orderId_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000004;
                 break;
-              } // case 25
-              case 34: {
-                status_ = input.readStringRequireUtf8();
+              } // case 26
+              case 33: {
+                amount_ = input.readDouble();
                 bitField0_ |= 0x00000008;
                 break;
-              } // case 34
+              } // case 33
+              case 42: {
+                status_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1927,9 +2027,81 @@ public final class Payment {
         return this;
       }
 
+      private java.lang.Object userId_ = "";
+      /**
+       * <code>string user_id = 2;</code>
+       * @return The userId.
+       */
+      public java.lang.String getUserId() {
+        java.lang.Object ref = userId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string user_id = 2;</code>
+       * @return The bytes for userId.
+       */
+      public com.google.protobuf.ByteString
+          getUserIdBytes() {
+        java.lang.Object ref = userId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string user_id = 2;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        userId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string user_id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        userId_ = getDefaultInstance().getUserId();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string user_id = 2;</code>
+       * @param value The bytes for userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        userId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object orderId_ = "";
       /**
-       * <code>string order_id = 2;</code>
+       * <code>string order_id = 3;</code>
        * @return The orderId.
        */
       public java.lang.String getOrderId() {
@@ -1945,7 +2117,7 @@ public final class Payment {
         }
       }
       /**
-       * <code>string order_id = 2;</code>
+       * <code>string order_id = 3;</code>
        * @return The bytes for orderId.
        */
       public com.google.protobuf.ByteString
@@ -1962,7 +2134,7 @@ public final class Payment {
         }
       }
       /**
-       * <code>string order_id = 2;</code>
+       * <code>string order_id = 3;</code>
        * @param value The orderId to set.
        * @return This builder for chaining.
        */
@@ -1970,22 +2142,22 @@ public final class Payment {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         orderId_ = value;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>string order_id = 2;</code>
+       * <code>string order_id = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearOrderId() {
         orderId_ = getDefaultInstance().getOrderId();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
-       * <code>string order_id = 2;</code>
+       * <code>string order_id = 3;</code>
        * @param value The bytes for orderId to set.
        * @return This builder for chaining.
        */
@@ -1994,14 +2166,14 @@ public final class Payment {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         orderId_ = value;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
 
       private double amount_ ;
       /**
-       * <code>double amount = 3;</code>
+       * <code>double amount = 4;</code>
        * @return The amount.
        */
       @java.lang.Override
@@ -2009,23 +2181,23 @@ public final class Payment {
         return amount_;
       }
       /**
-       * <code>double amount = 3;</code>
+       * <code>double amount = 4;</code>
        * @param value The amount to set.
        * @return This builder for chaining.
        */
       public Builder setAmount(double value) {
 
         amount_ = value;
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
-       * <code>double amount = 3;</code>
+       * <code>double amount = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearAmount() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         amount_ = 0D;
         onChanged();
         return this;
@@ -2033,7 +2205,7 @@ public final class Payment {
 
       private java.lang.Object status_ = "";
       /**
-       * <code>string status = 4;</code>
+       * <code>string status = 5;</code>
        * @return The status.
        */
       public java.lang.String getStatus() {
@@ -2049,7 +2221,7 @@ public final class Payment {
         }
       }
       /**
-       * <code>string status = 4;</code>
+       * <code>string status = 5;</code>
        * @return The bytes for status.
        */
       public com.google.protobuf.ByteString
@@ -2066,7 +2238,7 @@ public final class Payment {
         }
       }
       /**
-       * <code>string status = 4;</code>
+       * <code>string status = 5;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
@@ -2074,22 +2246,22 @@ public final class Payment {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         status_ = value;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
-       * <code>string status = 4;</code>
+       * <code>string status = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
         status_ = getDefaultInstance().getStatus();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
       /**
-       * <code>string status = 4;</code>
+       * <code>string status = 5;</code>
        * @param value The bytes for status to set.
        * @return This builder for chaining.
        */
@@ -2098,7 +2270,7 @@ public final class Payment {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         status_ = value;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2193,15 +2365,15 @@ public final class Payment {
       "\n\rpayment.proto\022\023com.example.payment\"C\n\016" +
       "PaymentRequest\022\017\n\007user_id\030\001 \001(\t\022\020\n\010order" +
       "_id\030\002 \001(\t\022\016\n\006amount\030\003 \001(\001\"*\n\024PaymentStat" +
-      "usRequest\022\022\n\npayment_id\030\001 \001(\t\"W\n\017Payment" +
-      "Response\022\022\n\npayment_id\030\001 \001(\t\022\020\n\010order_id" +
-      "\030\002 \001(\t\022\016\n\006amount\030\003 \001(\001\022\016\n\006status\030\004 \001(\t2\322" +
-      "\001\n\016PaymentService\022[\n\016ProcessPayment\022#.co" +
-      "m.example.payment.PaymentRequest\032$.com.e" +
-      "xample.payment.PaymentResponse\022c\n\020GetPay" +
-      "mentStatus\022).com.example.payment.Payment" +
-      "StatusRequest\032$.com.example.payment.Paym" +
-      "entResponseb\006proto3"
+      "usRequest\022\022\n\npayment_id\030\001 \001(\t\"h\n\017Payment" +
+      "Response\022\022\n\npayment_id\030\001 \001(\t\022\017\n\007user_id\030" +
+      "\002 \001(\t\022\020\n\010order_id\030\003 \001(\t\022\016\n\006amount\030\004 \001(\001\022" +
+      "\016\n\006status\030\005 \001(\t2\324\001\n\016PaymentService\022[\n\016Pr" +
+      "ocessPayment\022#.com.example.payment.Payme" +
+      "ntRequest\032$.com.example.payment.PaymentR" +
+      "esponse\022e\n\022CheckPaymentStatus\022).com.exam" +
+      "ple.payment.PaymentStatusRequest\032$.com.e" +
+      "xample.payment.PaymentResponseb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2224,7 +2396,7 @@ public final class Payment {
     internal_static_com_example_payment_PaymentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_example_payment_PaymentResponse_descriptor,
-        new java.lang.String[] { "PaymentId", "OrderId", "Amount", "Status", });
+        new java.lang.String[] { "PaymentId", "UserId", "OrderId", "Amount", "Status", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

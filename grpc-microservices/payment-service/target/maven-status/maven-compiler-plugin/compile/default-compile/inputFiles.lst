@@ -1,2 +1,3 @@
 /home/diman/IdeaProjects/grpc-microservices/payment-service/target/generated-sources/protobuf/grpc-java/com/example/payment/PaymentServiceGrpc.java
 /home/diman/IdeaProjects/grpc-microservices/payment-service/target/generated-sources/protobuf/java/com/example/payment/Payment.java
+/home/diman/IdeaProjects/grpc-microservices/payment-service/src/main/java/com/example/payment/PaymentServiceServer.java

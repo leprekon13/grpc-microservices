@@ -3,6 +3,9 @@ package com.example.payment;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ * Определение сервиса
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.56.0)",
@@ -47,34 +50,34 @@ public final class PaymentServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.example.payment.Payment.PaymentStatusRequest,
-      com.example.payment.Payment.PaymentResponse> getGetPaymentStatusMethod;
+      com.example.payment.Payment.PaymentResponse> getCheckPaymentStatusMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetPaymentStatus",
+      fullMethodName = SERVICE_NAME + '/' + "CheckPaymentStatus",
       requestType = com.example.payment.Payment.PaymentStatusRequest.class,
       responseType = com.example.payment.Payment.PaymentResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.example.payment.Payment.PaymentStatusRequest,
-      com.example.payment.Payment.PaymentResponse> getGetPaymentStatusMethod() {
-    io.grpc.MethodDescriptor<com.example.payment.Payment.PaymentStatusRequest, com.example.payment.Payment.PaymentResponse> getGetPaymentStatusMethod;
-    if ((getGetPaymentStatusMethod = PaymentServiceGrpc.getGetPaymentStatusMethod) == null) {
+      com.example.payment.Payment.PaymentResponse> getCheckPaymentStatusMethod() {
+    io.grpc.MethodDescriptor<com.example.payment.Payment.PaymentStatusRequest, com.example.payment.Payment.PaymentResponse> getCheckPaymentStatusMethod;
+    if ((getCheckPaymentStatusMethod = PaymentServiceGrpc.getCheckPaymentStatusMethod) == null) {
       synchronized (PaymentServiceGrpc.class) {
-        if ((getGetPaymentStatusMethod = PaymentServiceGrpc.getGetPaymentStatusMethod) == null) {
-          PaymentServiceGrpc.getGetPaymentStatusMethod = getGetPaymentStatusMethod =
+        if ((getCheckPaymentStatusMethod = PaymentServiceGrpc.getCheckPaymentStatusMethod) == null) {
+          PaymentServiceGrpc.getCheckPaymentStatusMethod = getCheckPaymentStatusMethod =
               io.grpc.MethodDescriptor.<com.example.payment.Payment.PaymentStatusRequest, com.example.payment.Payment.PaymentResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetPaymentStatus"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CheckPaymentStatus"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.example.payment.Payment.PaymentStatusRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.example.payment.Payment.PaymentResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new PaymentServiceMethodDescriptorSupplier("GetPaymentStatus"))
+              .setSchemaDescriptor(new PaymentServiceMethodDescriptorSupplier("CheckPaymentStatus"))
               .build();
         }
       }
     }
-    return getGetPaymentStatusMethod;
+    return getCheckPaymentStatusMethod;
   }
 
   /**
@@ -122,6 +125,9 @@ public final class PaymentServiceGrpc {
   }
 
   /**
+   * <pre>
+   * Определение сервиса
+   * </pre>
    */
   public interface AsyncService {
 
@@ -134,14 +140,17 @@ public final class PaymentServiceGrpc {
 
     /**
      */
-    default void getPaymentStatus(com.example.payment.Payment.PaymentStatusRequest request,
+    default void checkPaymentStatus(com.example.payment.Payment.PaymentStatusRequest request,
         io.grpc.stub.StreamObserver<com.example.payment.Payment.PaymentResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetPaymentStatusMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCheckPaymentStatusMethod(), responseObserver);
     }
   }
 
   /**
    * Base class for the server implementation of the service PaymentService.
+   * <pre>
+   * Определение сервиса
+   * </pre>
    */
   public static abstract class PaymentServiceImplBase
       implements io.grpc.BindableService, AsyncService {
@@ -153,6 +162,9 @@ public final class PaymentServiceGrpc {
 
   /**
    * A stub to allow clients to do asynchronous rpc calls to service PaymentService.
+   * <pre>
+   * Определение сервиса
+   * </pre>
    */
   public static final class PaymentServiceStub
       extends io.grpc.stub.AbstractAsyncStub<PaymentServiceStub> {
@@ -177,15 +189,18 @@ public final class PaymentServiceGrpc {
 
     /**
      */
-    public void getPaymentStatus(com.example.payment.Payment.PaymentStatusRequest request,
+    public void checkPaymentStatus(com.example.payment.Payment.PaymentStatusRequest request,
         io.grpc.stub.StreamObserver<com.example.payment.Payment.PaymentResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetPaymentStatusMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getCheckPaymentStatusMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
   /**
    * A stub to allow clients to do synchronous rpc calls to service PaymentService.
+   * <pre>
+   * Определение сервиса
+   * </pre>
    */
   public static final class PaymentServiceBlockingStub
       extends io.grpc.stub.AbstractBlockingStub<PaymentServiceBlockingStub> {
@@ -209,14 +224,17 @@ public final class PaymentServiceGrpc {
 
     /**
      */
-    public com.example.payment.Payment.PaymentResponse getPaymentStatus(com.example.payment.Payment.PaymentStatusRequest request) {
+    public com.example.payment.Payment.PaymentResponse checkPaymentStatus(com.example.payment.Payment.PaymentStatusRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetPaymentStatusMethod(), getCallOptions(), request);
+          getChannel(), getCheckPaymentStatusMethod(), getCallOptions(), request);
     }
   }
 
   /**
    * A stub to allow clients to do ListenableFuture-style rpc calls to service PaymentService.
+   * <pre>
+   * Определение сервиса
+   * </pre>
    */
   public static final class PaymentServiceFutureStub
       extends io.grpc.stub.AbstractFutureStub<PaymentServiceFutureStub> {
@@ -241,15 +259,15 @@ public final class PaymentServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.example.payment.Payment.PaymentResponse> getPaymentStatus(
+    public com.google.common.util.concurrent.ListenableFuture<com.example.payment.Payment.PaymentResponse> checkPaymentStatus(
         com.example.payment.Payment.PaymentStatusRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetPaymentStatusMethod(), getCallOptions()), request);
+          getChannel().newCall(getCheckPaymentStatusMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_PROCESS_PAYMENT = 0;
-  private static final int METHODID_GET_PAYMENT_STATUS = 1;
+  private static final int METHODID_CHECK_PAYMENT_STATUS = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -272,8 +290,8 @@ public final class PaymentServiceGrpc {
           serviceImpl.processPayment((com.example.payment.Payment.PaymentRequest) request,
               (io.grpc.stub.StreamObserver<com.example.payment.Payment.PaymentResponse>) responseObserver);
           break;
-        case METHODID_GET_PAYMENT_STATUS:
-          serviceImpl.getPaymentStatus((com.example.payment.Payment.PaymentStatusRequest) request,
+        case METHODID_CHECK_PAYMENT_STATUS:
+          serviceImpl.checkPaymentStatus((com.example.payment.Payment.PaymentStatusRequest) request,
               (io.grpc.stub.StreamObserver<com.example.payment.Payment.PaymentResponse>) responseObserver);
           break;
         default:
@@ -302,12 +320,12 @@ public final class PaymentServiceGrpc {
               com.example.payment.Payment.PaymentResponse>(
                 service, METHODID_PROCESS_PAYMENT)))
         .addMethod(
-          getGetPaymentStatusMethod(),
+          getCheckPaymentStatusMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
               com.example.payment.Payment.PaymentStatusRequest,
               com.example.payment.Payment.PaymentResponse>(
-                service, METHODID_GET_PAYMENT_STATUS)))
+                service, METHODID_CHECK_PAYMENT_STATUS)))
         .build();
   }
 
@@ -357,7 +375,7 @@ public final class PaymentServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new PaymentServiceFileDescriptorSupplier())
               .addMethod(getProcessPaymentMethod())
-              .addMethod(getGetPaymentStatusMethod())
+              .addMethod(getCheckPaymentStatusMethod())
               .build();
         }
       }
