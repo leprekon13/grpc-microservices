@@ -1,5 +1,8 @@
 package com.example.order;
 
+import com.example.order.Order.CreateOrderRequest;
+import com.example.order.Order.GetOrderRequest;
+import com.example.order.Order.OrderResponse;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -7,54 +10,89 @@ import io.grpc.stub.StreamObserver;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
+
 
 public class OrderServiceServer {
 
-    private static final int PORT = 50052;
+    private final int port = 50052;
+    private final Server server;
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        Server server = ServerBuilder.forPort(PORT)
+    public OrderServiceServer() {
+        this.server = ServerBuilder
+                .forPort(port)
                 .addService(new OrderServiceImpl())
                 .build();
+    }
 
-        System.out.println("Starting OrderServiceServer on port " + PORT + "...");
+    public void start() throws IOException {
         server.start();
-        System.out.println("OrderServiceServer started.");
-        server.awaitTermination();
+        System.out.println("OrderServiceServer started on port " + port);
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.err.println("Shutting down gRPC server...");
+            OrderServiceServer.this.stop();
+            System.err.println("Server shut down.");
+        }));
+    }
+
+    public void stop() {
+        if (server != null) {
+            server.shutdown();
+        }
+    }
+
+    public void blockUntilShutdown() throws InterruptedException {
+        if (server != null) {
+            server.awaitTermination();
+        }
+    }
+
+    public static void main(String[] args) throws IOException, InterruptedException {
+        final OrderServiceServer server = new OrderServiceServer();
+        server.start();
+        server.blockUntilShutdown();
     }
 
     static class OrderServiceImpl extends OrderServiceGrpc.OrderServiceImplBase {
 
-        private final Map<String, Order.OrderResponse> orderDatabase = new HashMap<>();
+        private final Map<String, OrderResponse> orders = new HashMap<>();
 
         @Override
-        public void createOrder(Order.CreateOrderRequest request, StreamObserver<Order.OrderResponse> responseObserver) {
-            String orderId = "order-" + (orderDatabase.size() + 1);
-            Order.OrderResponse orderResponse = Order.OrderResponse.newBuilder()
+        public void createOrder(CreateOrderRequest request, StreamObserver<OrderResponse> responseObserver) {
+            // Генерация уникального идентификатора для заказа
+            String orderId = UUID.randomUUID().toString();
+
+            // Создание объекта ответа
+            Order.OrderResponse order = OrderResponse.newBuilder()
                     .setOrderId(orderId)
-                    .setProductName(request.getProductName())
+                    .setUserId(request.getUserId())
+                    .setProductId(request.getProductId())
                     .setQuantity(request.getQuantity())
                     .setStatus("CREATED")
                     .build();
 
-            orderDatabase.put(orderId, orderResponse);
+            // Сохранение заказа в локальном хранилище
+            orders.put(orderId, order);
 
-            responseObserver.onNext(orderResponse);
+            // Отправка ответа клиенту
+            responseObserver.onNext(order);
             responseObserver.onCompleted();
         }
 
         @Override
-        public void getOrder(Order.GetOrderRequest request, StreamObserver<Order.OrderResponse> responseObserver) {
+        public void getOrder(GetOrderRequest request, StreamObserver<OrderResponse> responseObserver) {
             String orderId = request.getOrderId();
-            Order.OrderResponse orderResponse = orderDatabase.get(orderId);
 
-            if (orderResponse != null) {
-                responseObserver.onNext(orderResponse);
+            // Проверка наличия заказа
+            if (orders.containsKey(orderId)) {
+                OrderResponse order = orders.get(orderId);
+                responseObserver.onNext(order);
             } else {
-                responseObserver.onError(new Throwable("Order not found with ID: " + orderId));
+                responseObserver.onError(new IllegalArgumentException("Order not found for ID: " + orderId));
             }
+
             responseObserver.onCompleted();
         }
     }
 }
-
