@@ -1,0 +1,8 @@
+# Ignore unnecessary files and directories
+*.log
+*.md
+*.iml
+.idea/
+*.class
+*.bak
+node_modules/

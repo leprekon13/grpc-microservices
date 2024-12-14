@@ -1,0 +1,15 @@
+# Use an official OpenJDK runtime as the base image
+FROM openjdk:11-jdk-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the JAR file into the container
+COPY target/order-service-1.0-SNAPSHOT-jar-with-dependencies.jar order-service.jar
+
+# Expose the service port
+EXPOSE 50052
+
+# Run the application
+CMD ["java", "-jar", "order-service.jar"]
+
