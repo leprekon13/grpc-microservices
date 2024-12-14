@@ -2,7 +2,6 @@ package com.example.tracking;
 
 import com.example.tracking.Tracking.GetTrackingInfoRequest;
 import com.example.tracking.Tracking.GetTrackingInfoResponse;
-import com.example.tracking.Tracking.TrackOrderRequest;
 import com.example.tracking.Tracking.TrackOrderResponse;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -55,47 +54,37 @@ public class TrackingServiceServer {
 
     static class TrackingServiceImpl extends TrackingServiceGrpc.TrackingServiceImplBase {
 
-        private final Map<String, String> trackingData = new HashMap<>();
+        private final Map<String, TrackOrderResponse> trackingData = new HashMap<>();
 
         public TrackingServiceImpl() {
-            // Предварительные данные отслеживания
-            trackingData.put("order-1", "In Transit");
-            trackingData.put("order-2", "Delivered");
-            trackingData.put("order-3", "Awaiting Pickup");
-        }
+            // Добавление фиктивных данных для тестирования
+            trackingData.put("order-123", TrackOrderResponse.newBuilder()
+                    .setOrderId("order-123")
+                    .setStatus("IN_TRANSIT")
+                    .setEstimatedDelivery("2024-12-20")
+                    .build());
 
-        @Override
-        public void trackOrder(TrackOrderRequest request, StreamObserver<TrackOrderResponse> responseObserver) {
-            String orderId = request.getOrderId();
-            String status = trackingData.getOrDefault(orderId, "Unknown Order ID");
-
-            TrackOrderResponse response = TrackOrderResponse.newBuilder()
-                    .setOrderId(orderId)
-                    .setStatus(status)
-                    .build();
-
-            responseObserver.onNext(response);
-            responseObserver.onCompleted();
+            trackingData.put("order-456", TrackOrderResponse.newBuilder()
+                    .setOrderId("order-456")
+                    .setStatus("DELIVERED")
+                    .setEstimatedDelivery("2024-12-15")
+                    .build());
         }
 
         @Override
         public void getTrackingInfo(GetTrackingInfoRequest request, StreamObserver<GetTrackingInfoResponse> responseObserver) {
             String orderId = request.getOrderId();
+            TrackOrderResponse trackingInfo = trackingData.getOrDefault(orderId,
+                    TrackOrderResponse.newBuilder()
+                            .setOrderId(orderId)
+                            .setStatus("Unknown Order ID")
+                            .build());
 
-            if (trackingData.containsKey(orderId)) {
-                String status = trackingData.get(orderId);
+            GetTrackingInfoResponse response = GetTrackingInfoResponse.newBuilder()
+                    .setTrackingInfo(trackingInfo)
+                    .build();
 
-                GetTrackingInfoResponse response = GetTrackingInfoResponse.newBuilder()
-                        .setOrderId(orderId)
-                        .setStatus(status)
-                        .setEstimatedDelivery("2024-12-20")
-                        .build();
-
-                responseObserver.onNext(response);
-            } else {
-                responseObserver.onError(new IllegalArgumentException("Tracking information not found for order ID: " + orderId));
-            }
-
+            responseObserver.onNext(response);
             responseObserver.onCompleted();
         }
     }

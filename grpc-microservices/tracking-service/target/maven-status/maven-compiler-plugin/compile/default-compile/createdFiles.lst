@@ -1,9 +1,7 @@
-com/example/tracking/Tracking$TrackOrderRequest$Builder.class
 com/example/tracking/TrackingServiceGrpc.class
 com/example/tracking/TrackingServiceGrpc$TrackingServiceStub.class
 com/example/tracking/Tracking$GetTrackingInfoRequestOrBuilder.class
 com/example/tracking/TrackingServiceServer.class
-com/example/tracking/Tracking$TrackOrderRequest$1.class
 com/example/tracking/TrackingServiceGrpc$AsyncService.class
 com/example/tracking/Tracking$TrackOrderResponse$1.class
 com/example/tracking/Tracking$TrackOrderResponseOrBuilder.class
@@ -27,6 +25,4 @@ com/example/tracking/Tracking$GetTrackingInfoResponse$Builder.class
 com/example/tracking/Tracking$GetTrackingInfoRequest$1.class
 com/example/tracking/Tracking$GetTrackingInfoResponse$1.class
 com/example/tracking/TrackingServiceGrpc$TrackingServiceFutureStub.class
-com/example/tracking/Tracking$TrackOrderRequestOrBuilder.class
 com/example/tracking/TrackingServiceGrpc$TrackingServiceBlockingStub.class
-com/example/tracking/Tracking$TrackOrderRequest.class

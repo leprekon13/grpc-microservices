@@ -3,26 +3,19 @@ syntax = "proto3";
 package com.example.tracking;
 
 service TrackingService {
-    rpc TrackOrder(TrackOrderRequest) returns (TrackOrderResponse);
     rpc GetTrackingInfo(GetTrackingInfoRequest) returns (GetTrackingInfoResponse);
-}
-
-message TrackOrderRequest {
-    string order_id = 1;
-    string status = 2;
-}
-
-message TrackOrderResponse {
-    string order_id = 1;
-    string status = 2; // Добавлено поле status
 }
 
 message GetTrackingInfoRequest {
     string order_id = 1;
 }
 
-message GetTrackingInfoResponse {
+message TrackOrderResponse {
     string order_id = 1;
-    string status = 2; // Добавлено поле status
-    string estimated_delivery = 3; // Добавлено поле estimated_delivery
+    string status = 2;
+    string estimated_delivery = 3;
+}
+
+message GetTrackingInfoResponse {
+    TrackOrderResponse tracking_info = 1;
 }
