@@ -12,7 +12,7 @@
     <artifactId>review-service</artifactId>
 
     <dependencies>
-        <!-- Зависимости gRPC -->
+        <!-- gRPC dependencies -->
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty</artifactId>
@@ -33,7 +33,7 @@
             <artifactId>protobuf-java</artifactId>
             <version>3.23.0</version>
         </dependency>
-        <!-- Добавление javax.annotation -->
+        <!-- Annotation dependency -->
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
@@ -43,7 +43,7 @@
 
     <build>
         <plugins>
-            <!-- OS Maven Plugin для определения платформы -->
+            <!-- OS Maven Plugin -->
             <plugin>
                 <groupId>kr.motd.maven</groupId>
                 <artifactId>os-maven-plugin</artifactId>
@@ -57,7 +57,7 @@
                 </executions>
             </plugin>
 
-            <!-- Плагин для генерации Java-кода из .proto файлов -->
+            <!-- Protobuf Maven Plugin -->
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
@@ -77,7 +77,7 @@
                 </executions>
             </plugin>
 
-            <!-- Maven Compiler Plugin для указания версии Java -->
+            <!-- Maven Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -86,6 +86,32 @@
                     <source>11</source>
                     <target>11</target>
                 </configuration>
+            </plugin>
+
+            <!-- Maven Assembly Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.4.2</version>
+                <executions>
+                    <execution>
+                        <id>create-jar-with-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>com.example.review.ReviewServiceServer</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

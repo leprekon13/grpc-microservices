@@ -1,2 +1,3 @@
-/home/diman/IdeaProjects/grpc-microservices/review-service/target/generated-sources/protobuf/java/com/example/review/Review.java
 /home/diman/IdeaProjects/grpc-microservices/review-service/target/generated-sources/protobuf/grpc-java/com/example/review/ReviewServiceGrpc.java
+/home/diman/IdeaProjects/grpc-microservices/review-service/target/generated-sources/protobuf/java/com/example/review/ReviewOuterClass.java
+/home/diman/IdeaProjects/grpc-microservices/review-service/src/main/java/com/example/review/ReviewServiceServer.java

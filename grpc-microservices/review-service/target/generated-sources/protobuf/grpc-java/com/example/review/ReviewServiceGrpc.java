@@ -3,6 +3,9 @@ package com.example.review;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ * Сервис для управления отзывами
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.56.0)",
@@ -15,60 +18,60 @@ public final class ReviewServiceGrpc {
   public static final String SERVICE_NAME = "com.example.review.ReviewService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.example.review.Review.ReviewRequest,
-      com.example.review.Review.ReviewResponse> getSubmitReviewMethod;
+  private static volatile io.grpc.MethodDescriptor<com.example.review.ReviewOuterClass.AddReviewRequest,
+      com.example.review.ReviewOuterClass.ReviewResponse> getAddReviewMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "SubmitReview",
-      requestType = com.example.review.Review.ReviewRequest.class,
-      responseType = com.example.review.Review.ReviewResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "AddReview",
+      requestType = com.example.review.ReviewOuterClass.AddReviewRequest.class,
+      responseType = com.example.review.ReviewOuterClass.ReviewResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.example.review.Review.ReviewRequest,
-      com.example.review.Review.ReviewResponse> getSubmitReviewMethod() {
-    io.grpc.MethodDescriptor<com.example.review.Review.ReviewRequest, com.example.review.Review.ReviewResponse> getSubmitReviewMethod;
-    if ((getSubmitReviewMethod = ReviewServiceGrpc.getSubmitReviewMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.example.review.ReviewOuterClass.AddReviewRequest,
+      com.example.review.ReviewOuterClass.ReviewResponse> getAddReviewMethod() {
+    io.grpc.MethodDescriptor<com.example.review.ReviewOuterClass.AddReviewRequest, com.example.review.ReviewOuterClass.ReviewResponse> getAddReviewMethod;
+    if ((getAddReviewMethod = ReviewServiceGrpc.getAddReviewMethod) == null) {
       synchronized (ReviewServiceGrpc.class) {
-        if ((getSubmitReviewMethod = ReviewServiceGrpc.getSubmitReviewMethod) == null) {
-          ReviewServiceGrpc.getSubmitReviewMethod = getSubmitReviewMethod =
-              io.grpc.MethodDescriptor.<com.example.review.Review.ReviewRequest, com.example.review.Review.ReviewResponse>newBuilder()
+        if ((getAddReviewMethod = ReviewServiceGrpc.getAddReviewMethod) == null) {
+          ReviewServiceGrpc.getAddReviewMethod = getAddReviewMethod =
+              io.grpc.MethodDescriptor.<com.example.review.ReviewOuterClass.AddReviewRequest, com.example.review.ReviewOuterClass.ReviewResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SubmitReview"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddReview"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.example.review.Review.ReviewRequest.getDefaultInstance()))
+                  com.example.review.ReviewOuterClass.AddReviewRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.example.review.Review.ReviewResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new ReviewServiceMethodDescriptorSupplier("SubmitReview"))
+                  com.example.review.ReviewOuterClass.ReviewResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ReviewServiceMethodDescriptorSupplier("AddReview"))
               .build();
         }
       }
     }
-    return getSubmitReviewMethod;
+    return getAddReviewMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.example.review.Review.GetReviewsRequest,
-      com.example.review.Review.ReviewsResponse> getGetReviewsMethod;
+  private static volatile io.grpc.MethodDescriptor<com.example.review.ReviewOuterClass.GetReviewsRequest,
+      com.example.review.ReviewOuterClass.ReviewsResponse> getGetReviewsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetReviews",
-      requestType = com.example.review.Review.GetReviewsRequest.class,
-      responseType = com.example.review.Review.ReviewsResponse.class,
+      requestType = com.example.review.ReviewOuterClass.GetReviewsRequest.class,
+      responseType = com.example.review.ReviewOuterClass.ReviewsResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.example.review.Review.GetReviewsRequest,
-      com.example.review.Review.ReviewsResponse> getGetReviewsMethod() {
-    io.grpc.MethodDescriptor<com.example.review.Review.GetReviewsRequest, com.example.review.Review.ReviewsResponse> getGetReviewsMethod;
+  public static io.grpc.MethodDescriptor<com.example.review.ReviewOuterClass.GetReviewsRequest,
+      com.example.review.ReviewOuterClass.ReviewsResponse> getGetReviewsMethod() {
+    io.grpc.MethodDescriptor<com.example.review.ReviewOuterClass.GetReviewsRequest, com.example.review.ReviewOuterClass.ReviewsResponse> getGetReviewsMethod;
     if ((getGetReviewsMethod = ReviewServiceGrpc.getGetReviewsMethod) == null) {
       synchronized (ReviewServiceGrpc.class) {
         if ((getGetReviewsMethod = ReviewServiceGrpc.getGetReviewsMethod) == null) {
           ReviewServiceGrpc.getGetReviewsMethod = getGetReviewsMethod =
-              io.grpc.MethodDescriptor.<com.example.review.Review.GetReviewsRequest, com.example.review.Review.ReviewsResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.example.review.ReviewOuterClass.GetReviewsRequest, com.example.review.ReviewOuterClass.ReviewsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetReviews"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.example.review.Review.GetReviewsRequest.getDefaultInstance()))
+                  com.example.review.ReviewOuterClass.GetReviewsRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.example.review.Review.ReviewsResponse.getDefaultInstance()))
+                  com.example.review.ReviewOuterClass.ReviewsResponse.getDefaultInstance()))
               .setSchemaDescriptor(new ReviewServiceMethodDescriptorSupplier("GetReviews"))
               .build();
         }
@@ -122,26 +125,32 @@ public final class ReviewServiceGrpc {
   }
 
   /**
+   * <pre>
+   * Сервис для управления отзывами
+   * </pre>
    */
   public interface AsyncService {
 
     /**
      */
-    default void submitReview(com.example.review.Review.ReviewRequest request,
-        io.grpc.stub.StreamObserver<com.example.review.Review.ReviewResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSubmitReviewMethod(), responseObserver);
+    default void addReview(com.example.review.ReviewOuterClass.AddReviewRequest request,
+        io.grpc.stub.StreamObserver<com.example.review.ReviewOuterClass.ReviewResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAddReviewMethod(), responseObserver);
     }
 
     /**
      */
-    default void getReviews(com.example.review.Review.GetReviewsRequest request,
-        io.grpc.stub.StreamObserver<com.example.review.Review.ReviewsResponse> responseObserver) {
+    default void getReviews(com.example.review.ReviewOuterClass.GetReviewsRequest request,
+        io.grpc.stub.StreamObserver<com.example.review.ReviewOuterClass.ReviewsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetReviewsMethod(), responseObserver);
     }
   }
 
   /**
    * Base class for the server implementation of the service ReviewService.
+   * <pre>
+   * Сервис для управления отзывами
+   * </pre>
    */
   public static abstract class ReviewServiceImplBase
       implements io.grpc.BindableService, AsyncService {
@@ -153,6 +162,9 @@ public final class ReviewServiceGrpc {
 
   /**
    * A stub to allow clients to do asynchronous rpc calls to service ReviewService.
+   * <pre>
+   * Сервис для управления отзывами
+   * </pre>
    */
   public static final class ReviewServiceStub
       extends io.grpc.stub.AbstractAsyncStub<ReviewServiceStub> {
@@ -169,16 +181,16 @@ public final class ReviewServiceGrpc {
 
     /**
      */
-    public void submitReview(com.example.review.Review.ReviewRequest request,
-        io.grpc.stub.StreamObserver<com.example.review.Review.ReviewResponse> responseObserver) {
+    public void addReview(com.example.review.ReviewOuterClass.AddReviewRequest request,
+        io.grpc.stub.StreamObserver<com.example.review.ReviewOuterClass.ReviewResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getSubmitReviewMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getAddReviewMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getReviews(com.example.review.Review.GetReviewsRequest request,
-        io.grpc.stub.StreamObserver<com.example.review.Review.ReviewsResponse> responseObserver) {
+    public void getReviews(com.example.review.ReviewOuterClass.GetReviewsRequest request,
+        io.grpc.stub.StreamObserver<com.example.review.ReviewOuterClass.ReviewsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetReviewsMethod(), getCallOptions()), request, responseObserver);
     }
@@ -186,6 +198,9 @@ public final class ReviewServiceGrpc {
 
   /**
    * A stub to allow clients to do synchronous rpc calls to service ReviewService.
+   * <pre>
+   * Сервис для управления отзывами
+   * </pre>
    */
   public static final class ReviewServiceBlockingStub
       extends io.grpc.stub.AbstractBlockingStub<ReviewServiceBlockingStub> {
@@ -202,14 +217,14 @@ public final class ReviewServiceGrpc {
 
     /**
      */
-    public com.example.review.Review.ReviewResponse submitReview(com.example.review.Review.ReviewRequest request) {
+    public com.example.review.ReviewOuterClass.ReviewResponse addReview(com.example.review.ReviewOuterClass.AddReviewRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getSubmitReviewMethod(), getCallOptions(), request);
+          getChannel(), getAddReviewMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.example.review.Review.ReviewsResponse getReviews(com.example.review.Review.GetReviewsRequest request) {
+    public com.example.review.ReviewOuterClass.ReviewsResponse getReviews(com.example.review.ReviewOuterClass.GetReviewsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetReviewsMethod(), getCallOptions(), request);
     }
@@ -217,6 +232,9 @@ public final class ReviewServiceGrpc {
 
   /**
    * A stub to allow clients to do ListenableFuture-style rpc calls to service ReviewService.
+   * <pre>
+   * Сервис для управления отзывами
+   * </pre>
    */
   public static final class ReviewServiceFutureStub
       extends io.grpc.stub.AbstractFutureStub<ReviewServiceFutureStub> {
@@ -233,22 +251,22 @@ public final class ReviewServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.example.review.Review.ReviewResponse> submitReview(
-        com.example.review.Review.ReviewRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.example.review.ReviewOuterClass.ReviewResponse> addReview(
+        com.example.review.ReviewOuterClass.AddReviewRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getSubmitReviewMethod(), getCallOptions()), request);
+          getChannel().newCall(getAddReviewMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.example.review.Review.ReviewsResponse> getReviews(
-        com.example.review.Review.GetReviewsRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.example.review.ReviewOuterClass.ReviewsResponse> getReviews(
+        com.example.review.ReviewOuterClass.GetReviewsRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetReviewsMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_SUBMIT_REVIEW = 0;
+  private static final int METHODID_ADD_REVIEW = 0;
   private static final int METHODID_GET_REVIEWS = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
@@ -268,13 +286,13 @@ public final class ReviewServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_SUBMIT_REVIEW:
-          serviceImpl.submitReview((com.example.review.Review.ReviewRequest) request,
-              (io.grpc.stub.StreamObserver<com.example.review.Review.ReviewResponse>) responseObserver);
+        case METHODID_ADD_REVIEW:
+          serviceImpl.addReview((com.example.review.ReviewOuterClass.AddReviewRequest) request,
+              (io.grpc.stub.StreamObserver<com.example.review.ReviewOuterClass.ReviewResponse>) responseObserver);
           break;
         case METHODID_GET_REVIEWS:
-          serviceImpl.getReviews((com.example.review.Review.GetReviewsRequest) request,
-              (io.grpc.stub.StreamObserver<com.example.review.Review.ReviewsResponse>) responseObserver);
+          serviceImpl.getReviews((com.example.review.ReviewOuterClass.GetReviewsRequest) request,
+              (io.grpc.stub.StreamObserver<com.example.review.ReviewOuterClass.ReviewsResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -295,18 +313,18 @@ public final class ReviewServiceGrpc {
   public static final io.grpc.ServerServiceDefinition bindService(AsyncService service) {
     return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
         .addMethod(
-          getSubmitReviewMethod(),
+          getAddReviewMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              com.example.review.Review.ReviewRequest,
-              com.example.review.Review.ReviewResponse>(
-                service, METHODID_SUBMIT_REVIEW)))
+              com.example.review.ReviewOuterClass.AddReviewRequest,
+              com.example.review.ReviewOuterClass.ReviewResponse>(
+                service, METHODID_ADD_REVIEW)))
         .addMethod(
           getGetReviewsMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              com.example.review.Review.GetReviewsRequest,
-              com.example.review.Review.ReviewsResponse>(
+              com.example.review.ReviewOuterClass.GetReviewsRequest,
+              com.example.review.ReviewOuterClass.ReviewsResponse>(
                 service, METHODID_GET_REVIEWS)))
         .build();
   }
@@ -317,7 +335,7 @@ public final class ReviewServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.example.review.Review.getDescriptor();
+      return com.example.review.ReviewOuterClass.getDescriptor();
     }
 
     @java.lang.Override
@@ -356,7 +374,7 @@ public final class ReviewServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ReviewServiceFileDescriptorSupplier())
-              .addMethod(getSubmitReviewMethod())
+              .addMethod(getAddReviewMethod())
               .addMethod(getGetReviewsMethod())
               .build();
         }
