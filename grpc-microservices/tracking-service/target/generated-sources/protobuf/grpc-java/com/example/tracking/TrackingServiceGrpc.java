@@ -15,60 +15,60 @@ public final class TrackingServiceGrpc {
   public static final String SERVICE_NAME = "com.example.tracking.TrackingService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.example.tracking.Tracking.TrackingInfoRequest,
-      com.example.tracking.Tracking.TrackingResponse> getAddTrackingInfoMethod;
+  private static volatile io.grpc.MethodDescriptor<com.example.tracking.Tracking.TrackOrderRequest,
+      com.example.tracking.Tracking.TrackOrderResponse> getTrackOrderMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "AddTrackingInfo",
-      requestType = com.example.tracking.Tracking.TrackingInfoRequest.class,
-      responseType = com.example.tracking.Tracking.TrackingResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "TrackOrder",
+      requestType = com.example.tracking.Tracking.TrackOrderRequest.class,
+      responseType = com.example.tracking.Tracking.TrackOrderResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.example.tracking.Tracking.TrackingInfoRequest,
-      com.example.tracking.Tracking.TrackingResponse> getAddTrackingInfoMethod() {
-    io.grpc.MethodDescriptor<com.example.tracking.Tracking.TrackingInfoRequest, com.example.tracking.Tracking.TrackingResponse> getAddTrackingInfoMethod;
-    if ((getAddTrackingInfoMethod = TrackingServiceGrpc.getAddTrackingInfoMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.example.tracking.Tracking.TrackOrderRequest,
+      com.example.tracking.Tracking.TrackOrderResponse> getTrackOrderMethod() {
+    io.grpc.MethodDescriptor<com.example.tracking.Tracking.TrackOrderRequest, com.example.tracking.Tracking.TrackOrderResponse> getTrackOrderMethod;
+    if ((getTrackOrderMethod = TrackingServiceGrpc.getTrackOrderMethod) == null) {
       synchronized (TrackingServiceGrpc.class) {
-        if ((getAddTrackingInfoMethod = TrackingServiceGrpc.getAddTrackingInfoMethod) == null) {
-          TrackingServiceGrpc.getAddTrackingInfoMethod = getAddTrackingInfoMethod =
-              io.grpc.MethodDescriptor.<com.example.tracking.Tracking.TrackingInfoRequest, com.example.tracking.Tracking.TrackingResponse>newBuilder()
+        if ((getTrackOrderMethod = TrackingServiceGrpc.getTrackOrderMethod) == null) {
+          TrackingServiceGrpc.getTrackOrderMethod = getTrackOrderMethod =
+              io.grpc.MethodDescriptor.<com.example.tracking.Tracking.TrackOrderRequest, com.example.tracking.Tracking.TrackOrderResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddTrackingInfo"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "TrackOrder"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.example.tracking.Tracking.TrackingInfoRequest.getDefaultInstance()))
+                  com.example.tracking.Tracking.TrackOrderRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.example.tracking.Tracking.TrackingResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TrackingServiceMethodDescriptorSupplier("AddTrackingInfo"))
+                  com.example.tracking.Tracking.TrackOrderResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TrackingServiceMethodDescriptorSupplier("TrackOrder"))
               .build();
         }
       }
     }
-    return getAddTrackingInfoMethod;
+    return getTrackOrderMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.example.tracking.Tracking.TrackingInfoRequest,
-      com.example.tracking.Tracking.TrackingResponse> getGetTrackingInfoMethod;
+  private static volatile io.grpc.MethodDescriptor<com.example.tracking.Tracking.GetTrackingInfoRequest,
+      com.example.tracking.Tracking.GetTrackingInfoResponse> getGetTrackingInfoMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetTrackingInfo",
-      requestType = com.example.tracking.Tracking.TrackingInfoRequest.class,
-      responseType = com.example.tracking.Tracking.TrackingResponse.class,
+      requestType = com.example.tracking.Tracking.GetTrackingInfoRequest.class,
+      responseType = com.example.tracking.Tracking.GetTrackingInfoResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.example.tracking.Tracking.TrackingInfoRequest,
-      com.example.tracking.Tracking.TrackingResponse> getGetTrackingInfoMethod() {
-    io.grpc.MethodDescriptor<com.example.tracking.Tracking.TrackingInfoRequest, com.example.tracking.Tracking.TrackingResponse> getGetTrackingInfoMethod;
+  public static io.grpc.MethodDescriptor<com.example.tracking.Tracking.GetTrackingInfoRequest,
+      com.example.tracking.Tracking.GetTrackingInfoResponse> getGetTrackingInfoMethod() {
+    io.grpc.MethodDescriptor<com.example.tracking.Tracking.GetTrackingInfoRequest, com.example.tracking.Tracking.GetTrackingInfoResponse> getGetTrackingInfoMethod;
     if ((getGetTrackingInfoMethod = TrackingServiceGrpc.getGetTrackingInfoMethod) == null) {
       synchronized (TrackingServiceGrpc.class) {
         if ((getGetTrackingInfoMethod = TrackingServiceGrpc.getGetTrackingInfoMethod) == null) {
           TrackingServiceGrpc.getGetTrackingInfoMethod = getGetTrackingInfoMethod =
-              io.grpc.MethodDescriptor.<com.example.tracking.Tracking.TrackingInfoRequest, com.example.tracking.Tracking.TrackingResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.example.tracking.Tracking.GetTrackingInfoRequest, com.example.tracking.Tracking.GetTrackingInfoResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetTrackingInfo"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.example.tracking.Tracking.TrackingInfoRequest.getDefaultInstance()))
+                  com.example.tracking.Tracking.GetTrackingInfoRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.example.tracking.Tracking.TrackingResponse.getDefaultInstance()))
+                  com.example.tracking.Tracking.GetTrackingInfoResponse.getDefaultInstance()))
               .setSchemaDescriptor(new TrackingServiceMethodDescriptorSupplier("GetTrackingInfo"))
               .build();
         }
@@ -127,15 +127,15 @@ public final class TrackingServiceGrpc {
 
     /**
      */
-    default void addTrackingInfo(com.example.tracking.Tracking.TrackingInfoRequest request,
-        io.grpc.stub.StreamObserver<com.example.tracking.Tracking.TrackingResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAddTrackingInfoMethod(), responseObserver);
+    default void trackOrder(com.example.tracking.Tracking.TrackOrderRequest request,
+        io.grpc.stub.StreamObserver<com.example.tracking.Tracking.TrackOrderResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getTrackOrderMethod(), responseObserver);
     }
 
     /**
      */
-    default void getTrackingInfo(com.example.tracking.Tracking.TrackingInfoRequest request,
-        io.grpc.stub.StreamObserver<com.example.tracking.Tracking.TrackingResponse> responseObserver) {
+    default void getTrackingInfo(com.example.tracking.Tracking.GetTrackingInfoRequest request,
+        io.grpc.stub.StreamObserver<com.example.tracking.Tracking.GetTrackingInfoResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTrackingInfoMethod(), responseObserver);
     }
   }
@@ -169,16 +169,16 @@ public final class TrackingServiceGrpc {
 
     /**
      */
-    public void addTrackingInfo(com.example.tracking.Tracking.TrackingInfoRequest request,
-        io.grpc.stub.StreamObserver<com.example.tracking.Tracking.TrackingResponse> responseObserver) {
+    public void trackOrder(com.example.tracking.Tracking.TrackOrderRequest request,
+        io.grpc.stub.StreamObserver<com.example.tracking.Tracking.TrackOrderResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getAddTrackingInfoMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getTrackOrderMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getTrackingInfo(com.example.tracking.Tracking.TrackingInfoRequest request,
-        io.grpc.stub.StreamObserver<com.example.tracking.Tracking.TrackingResponse> responseObserver) {
+    public void getTrackingInfo(com.example.tracking.Tracking.GetTrackingInfoRequest request,
+        io.grpc.stub.StreamObserver<com.example.tracking.Tracking.GetTrackingInfoResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetTrackingInfoMethod(), getCallOptions()), request, responseObserver);
     }
@@ -202,14 +202,14 @@ public final class TrackingServiceGrpc {
 
     /**
      */
-    public com.example.tracking.Tracking.TrackingResponse addTrackingInfo(com.example.tracking.Tracking.TrackingInfoRequest request) {
+    public com.example.tracking.Tracking.TrackOrderResponse trackOrder(com.example.tracking.Tracking.TrackOrderRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getAddTrackingInfoMethod(), getCallOptions(), request);
+          getChannel(), getTrackOrderMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.example.tracking.Tracking.TrackingResponse getTrackingInfo(com.example.tracking.Tracking.TrackingInfoRequest request) {
+    public com.example.tracking.Tracking.GetTrackingInfoResponse getTrackingInfo(com.example.tracking.Tracking.GetTrackingInfoRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetTrackingInfoMethod(), getCallOptions(), request);
     }
@@ -233,22 +233,22 @@ public final class TrackingServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.example.tracking.Tracking.TrackingResponse> addTrackingInfo(
-        com.example.tracking.Tracking.TrackingInfoRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.example.tracking.Tracking.TrackOrderResponse> trackOrder(
+        com.example.tracking.Tracking.TrackOrderRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getAddTrackingInfoMethod(), getCallOptions()), request);
+          getChannel().newCall(getTrackOrderMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.example.tracking.Tracking.TrackingResponse> getTrackingInfo(
-        com.example.tracking.Tracking.TrackingInfoRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.example.tracking.Tracking.GetTrackingInfoResponse> getTrackingInfo(
+        com.example.tracking.Tracking.GetTrackingInfoRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetTrackingInfoMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_ADD_TRACKING_INFO = 0;
+  private static final int METHODID_TRACK_ORDER = 0;
   private static final int METHODID_GET_TRACKING_INFO = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
@@ -268,13 +268,13 @@ public final class TrackingServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_ADD_TRACKING_INFO:
-          serviceImpl.addTrackingInfo((com.example.tracking.Tracking.TrackingInfoRequest) request,
-              (io.grpc.stub.StreamObserver<com.example.tracking.Tracking.TrackingResponse>) responseObserver);
+        case METHODID_TRACK_ORDER:
+          serviceImpl.trackOrder((com.example.tracking.Tracking.TrackOrderRequest) request,
+              (io.grpc.stub.StreamObserver<com.example.tracking.Tracking.TrackOrderResponse>) responseObserver);
           break;
         case METHODID_GET_TRACKING_INFO:
-          serviceImpl.getTrackingInfo((com.example.tracking.Tracking.TrackingInfoRequest) request,
-              (io.grpc.stub.StreamObserver<com.example.tracking.Tracking.TrackingResponse>) responseObserver);
+          serviceImpl.getTrackingInfo((com.example.tracking.Tracking.GetTrackingInfoRequest) request,
+              (io.grpc.stub.StreamObserver<com.example.tracking.Tracking.GetTrackingInfoResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -295,18 +295,18 @@ public final class TrackingServiceGrpc {
   public static final io.grpc.ServerServiceDefinition bindService(AsyncService service) {
     return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
         .addMethod(
-          getAddTrackingInfoMethod(),
+          getTrackOrderMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              com.example.tracking.Tracking.TrackingInfoRequest,
-              com.example.tracking.Tracking.TrackingResponse>(
-                service, METHODID_ADD_TRACKING_INFO)))
+              com.example.tracking.Tracking.TrackOrderRequest,
+              com.example.tracking.Tracking.TrackOrderResponse>(
+                service, METHODID_TRACK_ORDER)))
         .addMethod(
           getGetTrackingInfoMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              com.example.tracking.Tracking.TrackingInfoRequest,
-              com.example.tracking.Tracking.TrackingResponse>(
+              com.example.tracking.Tracking.GetTrackingInfoRequest,
+              com.example.tracking.Tracking.GetTrackingInfoResponse>(
                 service, METHODID_GET_TRACKING_INFO)))
         .build();
   }
@@ -356,7 +356,7 @@ public final class TrackingServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new TrackingServiceFileDescriptorSupplier())
-              .addMethod(getAddTrackingInfoMethod())
+              .addMethod(getTrackOrderMethod())
               .addMethod(getGetTrackingInfoMethod())
               .build();
         }
