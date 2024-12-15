@@ -1,0 +1,41 @@
+version: "3.9"
+services:
+  user-service:
+    image: user-service:latest
+    container_name: user-service
+    build:
+      context: ./user-service
+    ports:
+      - "50051:50051"
+
+  order-service:
+    image: order-service:latest
+    container_name: order-service
+    build:
+      context: ./order-service
+    ports:
+      - "50052:50052"
+
+  payment-service:
+    image: payment-service:latest
+    container_name: payment-service
+    build:
+      context: ./payment-service
+    ports:
+      - "50053:50053"
+
+  tracking-service:
+    image: tracking-service:latest
+    container_name: tracking-service
+    build:
+      context: ./tracking-service
+    ports:
+      - "50054:50054"
+
+  review-service:
+    image: review-service:latest
+    container_name: review-service
+    build:
+      context: ./review-service
+    ports:
+      - "50055:50055"
