@@ -5,11 +5,10 @@ FROM openjdk:11-jdk-slim
 WORKDIR /app
 
 # Copy the JAR file into the container
-COPY target/user-service-1.0-SNAPSHOT-jar-with-dependencies.jar user-service.jar
+COPY target/user-service-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
 
 # Expose the service port
 EXPOSE 50051
 
 # Run the application
-CMD ["java", "-jar", "user-service.jar"]
-
+CMD ["java", "-jar", "app.jar"]

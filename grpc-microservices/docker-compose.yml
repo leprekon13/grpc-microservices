@@ -1,41 +1,55 @@
-version: "3.9"
+version: '3.8'
 services:
   user-service:
-    image: user-service:latest
-    container_name: user-service
     build:
       context: ./user-service
+      dockerfile: Dockerfile
     ports:
       - "50051:50051"
+    container_name: user-service
+    networks:
+      - grpc-network
 
   order-service:
-    image: order-service:latest
-    container_name: order-service
     build:
       context: ./order-service
+      dockerfile: Dockerfile
     ports:
       - "50052:50052"
+    container_name: order-service
+    networks:
+      - grpc-network
 
   payment-service:
-    image: payment-service:latest
-    container_name: payment-service
     build:
       context: ./payment-service
+      dockerfile: Dockerfile
     ports:
       - "50053:50053"
+    container_name: payment-service
+    networks:
+      - grpc-network
 
   tracking-service:
-    image: tracking-service:latest
-    container_name: tracking-service
     build:
       context: ./tracking-service
+      dockerfile: Dockerfile
     ports:
       - "50054:50054"
+    container_name: tracking-service
+    networks:
+      - grpc-network
 
   review-service:
-    image: review-service:latest
-    container_name: review-service
     build:
       context: ./review-service
+      dockerfile: Dockerfile
     ports:
       - "50055:50055"
+    container_name: review-service
+    networks:
+      - grpc-network
+
+networks:
+  grpc-network:
+    driver: bridge
